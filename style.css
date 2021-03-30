@@ -13,9 +13,14 @@ h1 {
     margin-right: 50px;
 }
 
+#viewhs {
+    text-align: left;
+}
+
 /*choose between section or make styling for each inidividual element*/
 section {
     text-align: center;
+    border: solid black;
 }
 h2 { 
     text-align: center;
