@@ -46,13 +46,15 @@ function gameLoss() {
 }
 
 //event target listener to determine when quiz is complete
-// when a button on question 1,2,3 and is clicked--> timer stops
 quizContainer.addEventListener("click", function(event){
     var element = event.target;
 
+    if(element.matches("button")) {
     if(answer1 && answer2 && answer3 === true) {
         clearInterval(timeInterval);
+        saveTime();
     }
+}
 })
 
 //event target listener for each question
@@ -79,6 +81,11 @@ question3.addEventListener("click", function(event){
         answer3 = true;
     }
 })
+
+//function to retrieve time
+function saveTime() {
+    localStorage.setItem("time", time);
+}
 
 
 
