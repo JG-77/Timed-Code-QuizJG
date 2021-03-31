@@ -1,3 +1,4 @@
+//variables pulled from html
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
 var quizContainer = document.getElementById("quiz");
@@ -8,9 +9,13 @@ var question3 = document.getElementById("q3");
 var correctAns = document.querySelectorAll(".correct");
 var wrongAns = document.querySelectorAll(".wrong");
 
+//global variables
 var time = 60;
 var winner = false;
 var timeInterval;
+var answer1;
+var answer2;
+var answer3;
 
 //Clicking start button begins quiz
 startbtn.addEventListener("click", startQuiz);
@@ -45,8 +50,33 @@ function gameLoss() {
 quizContainer.addEventListener("click", function(event){
     var element = event.target;
 
+    if(answer1 && answer2 && answer3 === true) {
+        clearInterval(timeInterval);
+    }
+})
+
+//event target listener for each question
+question1.addEventListener("click", function(event){
+    var element = event.target;
+
     if(element.matches("button")) {
-        
+        answer1 = true;
+    }
+})
+
+question2.addEventListener("click", function(event){
+    var element = event.target;
+
+    if(element.matches("button")) {
+        answer2 = true;
+    }
+})
+
+question3.addEventListener("click", function(event){
+    var element = event.target;
+
+    if(element.matches("button")) {
+        answer3 = true;
     }
 })
 
