@@ -63,6 +63,9 @@ question1.addEventListener("click", function(event){
 
     if(element.matches("button")) {
         answer1 = true;
+        if(matches(correctAns)){
+            displayMessage("Correct!");
+        }
     }
 })
 
