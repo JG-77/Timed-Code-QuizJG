@@ -10,6 +10,7 @@ var wrongAns = document.querySelectorAll(".wrong");
 
 var time = 60;
 var winner = false;
+var timeInterval;
 
 //Clicking start button begins quiz
 startbtn.addEventListener("click", startQuiz);
@@ -53,7 +54,7 @@ quizContainer.addEventListener("click", function(event){
 
 //function for timer
 function startTime() {
-    var timeInterval = setInterval(function() {
+    timeInterval = setInterval(function() {
         time--;
         timer.textContent = "Time: " + time;
         if(time >= 0) {
