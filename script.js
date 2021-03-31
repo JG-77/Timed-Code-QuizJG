@@ -8,6 +8,7 @@ var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
 var correctAns = document.querySelectorAll(".correct");
 var wrongAns = document.querySelectorAll(".wrong");
+var showAns = document.querySelectorAll(".display");
 
 //global variables
 var time = 60;
@@ -63,9 +64,13 @@ question1.addEventListener("click", function(event){
 
     if(element.matches("button")) {
         answer1 = true;
-        //if("button" = correctAns) {
-            //displayMessage("Correct!");
-        //}
+        var answerIs = element.getAttribute("class");
+        if(answerIs === "correct") {
+            //show("Correct!");
+        }
+        if(answerIs === "wrong") {
+            console.log(answerIs);
+        }
     }
 })
 
@@ -84,6 +89,12 @@ question3.addEventListener("click", function(event){
         answer3 = true;
     }
 })
+
+//function to show if answer is wrong or correct
+//function show() {
+  //showAns.textContent = " ";
+  
+//}
 
 //function to retrieve time
 function saveTime() {
