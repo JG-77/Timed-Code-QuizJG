@@ -1,5 +1,6 @@
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
+var quizContainer = document.getElementById("quiz");
 var bttn = document.querySelectorAll("button");
 var question1 = document.getElementById("q1");
 var question2 = document.getElementById("q2");
@@ -38,10 +39,17 @@ function gameLoss() {
 
 }
 
-//function to determine when quiz is complete
-function quizDone() {
+//event target listener to determine when quiz is complete
+// when a button on question 1,2,3 and is clicked--> timer stops
+quizContainer.addEventListener("click", function(event){
+    var element = event.target;
 
-}
+    if(element.matches("button")) {
+        
+    }
+})
+
+
 
 //function for timer
 function startTime() {
