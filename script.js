@@ -1,6 +1,11 @@
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
 var bttn = document.querySelectorAll("button");
+var question1 = document.getElementById("q1");
+var question2 = document.getElementById("q2");
+var question3 = document.getElementById("q3");
+var correctAns = document.querySelectorAll(".correct");
+var wrongAns = document.querySelectorAll(".wrong");
 
 var time = 60;
 var winner = false;
@@ -23,9 +28,19 @@ function gameWin() {
 //function checking win
 function winValid() {
     //finish if statement
-    if () {
+    if (placeholder) {
         winner = true;
     }
+}
+
+//function for losing the game
+function gameLoss() {
+
+}
+
+//function to determine when quiz is complete
+function quizDone() {
+
 }
 
 //function for timer
