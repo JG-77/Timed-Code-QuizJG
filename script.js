@@ -66,6 +66,7 @@ question1.addEventListener("click", function(event){
         answer1 = true;
         var answerIs = element.getAttribute("class");
         if(answerIs === "correct") {
+            // function show() line 95 --> showAns.textContent =
             //show("Correct!");
         }
         if(answerIs === "wrong") {
