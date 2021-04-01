@@ -8,7 +8,7 @@ var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
 var correctAns = document.querySelectorAll(".correct");
 var wrongAns = document.querySelectorAll(".wrong");
-var showAns = document.querySelectorAll(".display");
+var showAns = document.querySelector(".display");
 
 //global variables
 var time = 60;
@@ -66,20 +66,26 @@ question1.addEventListener("click", function(event){
         answer1 = true;
         var answerIs = element.getAttribute("class");
         if(answerIs === "correct") {
-            // function show() line 95 --> showAns.textContent =
-            //show("Correct!");
+            show("Correct!");
         }
         if(answerIs === "wrong") {
-            console.log(answerIs);
+            show("Wrong!");
         }
     }
 })
-
+//Debug question 2&3 for display
 question2.addEventListener("click", function(event){
     var element = event.target;
 
     if(element.matches("button")) {
         answer2 = true;
+        var answerIs = element.getAttribute("class");
+        if(answerIs === "correct") {
+            show("Correct!");
+        }
+        if(answerIs === "wrong") {
+            show("Wrong!");
+        }
     }
 })
 
@@ -88,14 +94,21 @@ question3.addEventListener("click", function(event){
 
     if(element.matches("button")) {
         answer3 = true;
+        var answerIs = element.getAttribute("class");
+        if(answerIs === "correct") {
+            show("Correct!");
+        }
+        if(answerIs === "wrong") {
+            show("Wrong!");
+        }
     }
 })
 
 //function to show if answer is wrong or correct
-//function show() {
-  //showAns.textContent = " ";
+function show(incoming) {
+  showAns.textContent = incoming;
   
-//}
+}
 
 //function to retrieve time
 function saveTime() {
