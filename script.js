@@ -138,7 +138,7 @@ function startTime() {
     timeInterval = setInterval(function() {
         time--;
         timer.textContent = "Time: " + time;
-        var subTen = bttn.getAttribute("class"); //correct??
+        bttn = element.getAttribute("class"); //correct??
         if(time >= 0) {
             //if time runs out player loses
             if (time === 0) {
@@ -151,7 +151,7 @@ function startTime() {
                 clearInterval(timeInterval);  
                 gameWin();
             }
-            if(subTen === "wrong") {
+            if(bttn === "wrong") {
                 time - 10000; //subtact 10 seconds
             }
 
