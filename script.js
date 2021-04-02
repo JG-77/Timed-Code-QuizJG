@@ -43,16 +43,16 @@ function winValid() {
     if (time > 0) {
         winner = true;
         gameWin(time);
-        console.log(winner);
+        //console.log(winner);
     } else {
         winner = false;
-        console.log(winner);
+        //console.log(winner);
     }
 }
 
 //function for losing the game
 function gameLoss() {
-
+    yourScore.textContent = "You Lose";
 }
 
 //event target listener to determine when quiz is complete
@@ -144,9 +144,8 @@ function startTime() {
         timer.textContent = "Time: " + time;
         if(time >= 0) {
             //if time runs out player loses
-            if (time === 0) {
+            if (time <= 0) {
                 clearInterval(timeInterval);
-                //define function
                 gameLoss();
                 }
         }
