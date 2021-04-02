@@ -70,6 +70,7 @@ question1.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show("Wrong!");
+            //console.log(show());
         }
     }
 })
@@ -85,6 +86,7 @@ question2.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show("Wrong!");
+            //console.log(show());
         }
     }
 })
@@ -100,6 +102,7 @@ question3.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show("Wrong!");
+            //console.log(show());
         }
     }
 })
