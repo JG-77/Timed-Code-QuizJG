@@ -2,8 +2,6 @@
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
 var quizContainer = document.getElementById("quiz");
-//delete button??
-//var bttn = document.querySelectorAll("button");
 var question1 = document.getElementById("q1");
 var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
@@ -13,6 +11,7 @@ var showAns1 = document.querySelector(".display1");
 var showAns2 = document.querySelector(".display2");
 var showAns3 = document.querySelector(".display3");
 var yourScore = document.querySelector(".score");
+var submitInitials = document.querySelector("#submitScore");
 
 //global variables
 var time = 60;
@@ -133,11 +132,20 @@ function show2(incoming) {
 //function to retrieve time
 function saveTime() {
     localStorage.setItem("time", time);
-    console.log(time);
 }
 
 //function for storagelog get item & submit initials
+function storeScore() {
 
+}
+
+//event listener for submitting initials
+submitInitials.addEventListener("click", function(event) {
+    var initialInput = document.querySelector("#initials");
+    if (initialInput === ""){
+        
+    }
+})
 //function for screen display
 
 //function for timer
