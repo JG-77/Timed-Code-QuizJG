@@ -2,6 +2,7 @@
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
 var quizContainer = document.getElementById("quiz");
+//delete button??
 var bttn = document.querySelectorAll("button");
 var question1 = document.getElementById("q1");
 var question2 = document.getElementById("q2");
@@ -72,11 +73,11 @@ question1.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show1("Wrong!");
-            //console.log(show());
+            
         }
     }
 })
-//Debug question 2&3 for display
+
 question2.addEventListener("click", function(event){
     var element = event.target;
 
@@ -88,7 +89,7 @@ question2.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show2("Wrong!");
-            //console.log(show());
+           
         }
     }
 })
@@ -104,7 +105,7 @@ question3.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show3("Wrong!");
-            //console.log(show());
+            
         }
     }
 })
@@ -137,6 +138,7 @@ function startTime() {
     timeInterval = setInterval(function() {
         time--;
         timer.textContent = "Time: " + time;
+        var subTen = bttn.getAttribute("class"); //correct??
         if(time >= 0) {
             //if time runs out player loses
             if (time === 0) {
@@ -148,6 +150,9 @@ function startTime() {
             if (winner && time > 0) {
                 clearInterval(timeInterval);  
                 gameWin();
+            }
+            if(subTen === "wrong") {
+                time - 10000; //subtact 10 seconds
             }
 
         }
