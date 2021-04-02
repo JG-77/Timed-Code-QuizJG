@@ -73,7 +73,7 @@ question1.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show1("Wrong!");
-            
+            time = time - 10;
         }
     }
 })
@@ -89,7 +89,7 @@ question2.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show2("Wrong!");
-           
+            time = time - 10;
         }
     }
 })
@@ -105,7 +105,7 @@ question3.addEventListener("click", function(event){
         }
         if(answerIs === "wrong") {
             show3("Wrong!");
-            
+            time = time - 10;
         }
     }
 })
@@ -138,7 +138,6 @@ function startTime() {
     timeInterval = setInterval(function() {
         time--;
         timer.textContent = "Time: " + time;
-        bttn = element.getAttribute("class"); //correct??
         if(time >= 0) {
             //if time runs out player loses
             if (time === 0) {
@@ -151,10 +150,6 @@ function startTime() {
                 clearInterval(timeInterval);  
                 gameWin();
             }
-            if(bttn === "wrong") {
-                time - 10000; //subtact 10 seconds
-            }
-
         }
     }, 1000)
 }
