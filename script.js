@@ -57,6 +57,7 @@ quizContainer.addEventListener("click", function(event){
     if(answer1 && answer2 && answer3 === true) {
         clearInterval(timeInterval);
         saveTime();
+        timer.textContent = "Time: " + time;
     }
 }
 })
@@ -113,25 +114,21 @@ question3.addEventListener("click", function(event){
 //functions to show if answer is wrong or correct
 function show1(incoming) {
   showAns1.textContent = incoming;
-  
 }
 
 function show2(incoming) {
     showAns2.textContent = incoming;
-    
   }
 
   function show3(incoming) {
     showAns3.textContent = incoming;
-    
   }
 
 //function to retrieve time
 function saveTime() {
     localStorage.setItem("time", time);
+    console.log(time);
 }
-
-
 
 //function for timer
 function startTime() {
