@@ -135,15 +135,19 @@ function saveTime() {
 }
 
 //function for storagelog get item & submit initials
-function storeScore() {
-
+function showScore() {
+    var hiScores = document.querySelector("#history");
+    hiScores.textContent = time;
 }
 
 //event listener for submitting initials
 submitInitials.addEventListener("click", function(event) {
+    
     var initialInput = document.querySelector("#initials");
     if (initialInput === ""){
-        
+        yourScore.textContent = "Please enter your initials";
+    } else {
+        showScore();
     }
 })
 //function for screen display
