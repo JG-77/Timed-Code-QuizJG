@@ -29,11 +29,11 @@ startbtn.addEventListener("click", startQuiz);
 function startQuiz() {
     winner = false;
     time = 60;
-    startTime()
+    startTime(time);
 }
 
 //function for winning the game
-function gameWin() {
+function gameWin(time) {
     yourScore.textContent = "Your Score:" + time;
     saveTime();
 }
@@ -42,6 +42,7 @@ function gameWin() {
 function winValid() {
     if (time > 0) {
         winner = true;
+        gameWin(time);
         console.log(winner);
     } else {
         winner = false;
@@ -148,11 +149,6 @@ function startTime() {
                 //define function
                 gameLoss();
                 }
-            //if player completes quiz before time runs out, they pass    
-            if (winner && time > 0) {
-                clearInterval(timeInterval);  
-                gameWin();
-            }
         }
     }, 1000)
 }
