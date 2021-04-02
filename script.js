@@ -12,6 +12,7 @@ var wrongAns = document.querySelectorAll(".wrong");
 var showAns1 = document.querySelector(".display1");
 var showAns2 = document.querySelector(".display2");
 var showAns3 = document.querySelector(".display3");
+var yourScore = document.querySelector(".score");
 
 //global variables
 var time = 60;
@@ -33,7 +34,8 @@ function startQuiz() {
 
 //function for winning the game
 function gameWin() {
-
+    yourScore.textContent = "Your Score:" + time;
+    saveTime();
 }
 
 //function checking win
