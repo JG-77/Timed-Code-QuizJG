@@ -3,7 +3,7 @@ var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
 var quizContainer = document.getElementById("quiz");
 //delete button??
-var bttn = document.querySelectorAll("button");
+//var bttn = document.querySelectorAll("button");
 var question1 = document.getElementById("q1");
 var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
@@ -38,9 +38,12 @@ function gameWin() {
 
 //function checking win
 function winValid() {
-    //finish if statement
-    if (placeholder) {
+    if (time > 0) {
         winner = true;
+        console.log(winner);
+    } else {
+        winner = false;
+        console.log(winner);
     }
 }
 
@@ -57,6 +60,7 @@ quizContainer.addEventListener("click", function(event){
     if(answer1 && answer2 && answer3 === true) {
         clearInterval(timeInterval);
         saveTime();
+        winValid();
         timer.textContent = "Time: " + time;
     }
 }
