@@ -43,10 +43,9 @@ function winValid() {
     if (time > 0) {
         winner = true;
         gameWin(time);
-        //console.log(winner);
-    } else {
+    }
+    else {
         winner = false;
-        //console.log(winner);
     }
 }
 
@@ -136,6 +135,10 @@ function saveTime() {
     localStorage.setItem("time", time);
     console.log(time);
 }
+
+//function for storagelog get item & submit initials
+
+//function for screen display
 
 //function for timer
 function startTime() {
