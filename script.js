@@ -8,7 +8,9 @@ var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
 var correctAns = document.querySelectorAll(".correct");
 var wrongAns = document.querySelectorAll(".wrong");
-var showAns = document.querySelector(".display");
+var showAns1 = document.querySelector(".display1");
+var showAns2 = document.querySelector(".display2");
+var showAns3 = document.querySelector(".display3");
 
 //global variables
 var time = 60;
@@ -66,10 +68,10 @@ question1.addEventListener("click", function(event){
         answer1 = true;
         var answerIs = element.getAttribute("class");
         if(answerIs === "correct") {
-            show("Correct!");
+            show1("Correct!");
         }
         if(answerIs === "wrong") {
-            show("Wrong!");
+            show1("Wrong!");
             //console.log(show());
         }
     }
@@ -82,10 +84,10 @@ question2.addEventListener("click", function(event){
         answer2 = true;
         var answerIs = element.getAttribute("class");
         if(answerIs === "correct") {
-            show("Correct!");
+            show2("Correct!");
         }
         if(answerIs === "wrong") {
-            show("Wrong!");
+            show2("Wrong!");
             //console.log(show());
         }
     }
@@ -98,20 +100,30 @@ question3.addEventListener("click", function(event){
         answer3 = true;
         var answerIs = element.getAttribute("class");
         if(answerIs === "correct") {
-            show("Correct!");
+            show3("Correct!");
         }
         if(answerIs === "wrong") {
-            show("Wrong!");
+            show3("Wrong!");
             //console.log(show());
         }
     }
 })
 
-//function to show if answer is wrong or correct
-function show(incoming) {
-  showAns.textContent = incoming;
+//functions to show if answer is wrong or correct
+function show1(incoming) {
+  showAns1.textContent = incoming;
   
 }
+
+function show2(incoming) {
+    showAns2.textContent = incoming;
+    
+  }
+
+  function show3(incoming) {
+    showAns3.textContent = incoming;
+    
+  }
 
 //function to retrieve time
 function saveTime() {
