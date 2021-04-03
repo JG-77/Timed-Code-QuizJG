@@ -8,6 +8,7 @@ var AnsChoiceCont = document.getElementById("choice");
 var rightOrWrong = document.getElementById("right-wrong");
 var scoreCont= document.getElementById("scoreboard");
 var highscoreCont= document.getElementById("highscore");
+var link = document.getElementById("viewhs");
 var yourScore = document.querySelector(".score");
 var submitInitials = document.querySelector("#submitScore");
 var initialInput = document.querySelector("#initials");
@@ -75,6 +76,21 @@ function displayQuiz() {
     }
 }
 
+//function for timer
+function startTime() {
+    timeInterval = setInterval(function() {
+        time--;
+        timer.textContent = "Time: " + time;
+        if(time >= 0) {
+            //if time runs out player loses
+            if (time <= 0) {
+                clearInterval(timeInterval);
+                gameLoss();
+            }
+        }
+    }, 1000)
+}
+
 //informs player if answer is correct or wrong
 function answerValid() {
     if(this.textContent === quizArray[questionIndex].answer) {
@@ -130,7 +146,6 @@ function showScore() {
     var hiScores = document.querySelector("#history");
     var getScore = localStorage.getItem("time", time);
     var initial = initialInput.value;
-    console.log(getScore);
     hiScores.textContent = initial + "-" + getScore;
 }
 //event listener for submitting initials
@@ -159,23 +174,19 @@ function clear() {
     localStorage.removeItem("initial", initial);
 }
 
+link.addEventListener("click", openScores)
+
+function openScores() {
+    if(highscoreCont.getAttribute("class") === "no-display") {
+    highscoreCont.setAttribute("class", "show-display");
+    } else {
+        highscoreCont.setAttribute("class", "no-display");
+    }
+}
+
+//back button even and function
 backBttn.addEventListener("click", backGame);//still need more
 
 function backGame() {
     window.location.reload();
-}
-
-//function for timer
-function startTime() {
-    timeInterval = setInterval(function() {
-        time--;
-        timer.textContent = "Time: " + time;
-        if(time >= 0) {
-            //if time runs out player loses
-            if (time <= 0) {
-                clearInterval(timeInterval);
-                gameLoss();
-            }
-        }
-    }, 1000)
 }
