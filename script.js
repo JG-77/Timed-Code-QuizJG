@@ -1,7 +1,7 @@
 //variables pulled from html
 var timer = document.getElementById("timer");
 var startbtn = document.getElementById("startbtn");
-var quizContainer = document.getElementById("quiz");
+/*var quizContainer = document.getElementById("quiz");
 var question1 = document.getElementById("q1");
 var question2 = document.getElementById("q2");
 var question3 = document.getElementById("q3");
@@ -9,7 +9,7 @@ var correctAns = document.querySelectorAll(".correct");
 var wrongAns = document.querySelectorAll(".wrong");
 var showAns1 = document.querySelector(".display1");
 var showAns2 = document.querySelector(".display2");
-var showAns3 = document.querySelector(".display3");
+var showAns3 = document.querySelector(".display3"); */
 var yourScore = document.querySelector(".score");
 var submitInitials = document.querySelector("#submitScore");
 var initialInput = document.querySelector("#initials");
@@ -23,6 +23,37 @@ var timeInterval;
 var answer1;
 var answer2;
 var answer3;
+
+var quizArray = [
+  {
+    q: "Which of the following elements is non-semantic?",
+    answerChoices: [
+        "1. <section>",
+        "2. <div>",
+        "3. <nav>",
+        "4. <h1>"
+    ],
+    answer: "2. <div>" //index for "2.div"
+  }, {
+      q: "Which element typically goes at the bottom of an html page?",
+      answerChoices: [
+          "1. <h1>",
+          "2. <header>",
+          "3. <footer>",
+          "4. <head>"
+      ],
+      answer: "3. <footer>" //index for "3. footer"
+  }, {
+      q: "Which coding language allows one to use the 'console.log' function?",
+      answerChoices: [
+          "1. Javascript",
+          "2. CSS",
+          "3. HTML",
+          "4. None of the above"
+      ],
+      answer: "1. Javascript",
+  }
+]
 
 //Clicking start button begins quiz
 startbtn.addEventListener("click", startQuiz);
