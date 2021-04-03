@@ -16,6 +16,17 @@ h1 {
 #viewhs {
     text-align: left;
 }
+
+/*quiz sections styling*/
+section {
+    text-align: center;
+    border: solid black;
+    background-color: rgb(255, 255, 255);
+    margin-left: 250px;
+    max-width: 50%;
+}
+
+/* section display on and off*/
 .no-display {
     display:none;
 } 
@@ -24,13 +35,6 @@ h1 {
     display: block;
 }
 
-section {
-    text-align: center;
-    border: solid black;
-    background-color: rgb(255, 255, 255);
-    margin-left: 250px;
-    max-width: 50%;
-}
 h2 { 
     text-align: center;
     font-size: 20px;
@@ -48,4 +52,8 @@ button {
 div {
     font-weight: bold;
     padding: 10px;
+}
+
+li {
+    list-style-type: none;
 }

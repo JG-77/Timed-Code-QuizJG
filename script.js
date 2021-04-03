@@ -174,22 +174,13 @@ function saveInitials () {
 //displays initials and score on highschore container
 function showHS() {
     var showHiScore = JSON.parse(localStorage.getItem("data"));
-
     showHiScore.forEach((score) => { 
         var player = document.createElement('li');
-        player.textContent = score.time;
-        player.appendChild('li');
+        player.textContent = score.initials + " " + score.time;
         console.log(score.initials); 
         console.log(score.time) 
+        highscoreCont.appendChild(player);
       });
-    var prevScores = document.createElement('li');
-    highscoreCont.appendChild(prevScores);
-    prevScores.textContent = showHiScore;
-    //prevScores = initials.value + time.value;
-    //JSON.parse(localStorage.getItem("initial", "time")
-    //for(var i = 0; i < showHiScore.length; i++) {
-
-    //}
 }
 
 //saves data and enters it in storage 
