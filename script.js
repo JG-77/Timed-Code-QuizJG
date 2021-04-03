@@ -16,7 +16,6 @@ var clearScore = document.querySelector("#clear");
 
 //global variables
 var time = 60;
-var winner = false;
 var timeInterval;
 var questionIndex = 0;
 
@@ -90,6 +89,8 @@ function answerValid() {
         clearInterval(timeInterval);
         quizContainer.setAttribute("class", "no-display");
         scoreCont.setAttribute("class", "show-display");
+        winValid(); //????
+        saveInitials(); //?????????????????
     } else {
         displayQuiz();
     }
@@ -104,25 +105,24 @@ function gameWin(time) {
     saveInitials();
 }
 
-//function to retrieve time
-function saveTime() {
-    localStorage.setItem("time", time);
+//function for losing the game
+function gameLoss() {
+    yourScore.textContent = "You Lose";
 }
 
 //function checking win
 function winValid() {
     if (time > 0) {
-        winner = true;
         gameWin(time);
     }
     else {
-        winner = false;
+        gameLoss();
     }
 }
 
-//function for losing the game
-function gameLoss() {
-    yourScore.textContent = "You Lose";
+//function to retrieve time
+function saveTime() {
+    localStorage.setItem("time", time);
 }
 
 //shows score and initial on screen
@@ -144,6 +144,7 @@ function saveInitials () {
     } else {
         localStorage.setItem("initial", initial);
         showScore();
+        scoreCont.setAttribute("class", "no-display");
         highscoreCont.setAttribute("class", "show-display");
     }
 }
@@ -159,15 +160,13 @@ function clear() {
     localStorage.removeItem("initial", initial);
 }
 
-//init() function for page refresh
-function init() {
-    showScore();
+backBttn.addEventListener("click", backGame);//still need more
+
+function backGame() {
+    startcont.setAttribute("class", "show-display");
+    highscoreCont.setAttribute("class", "no-display");
+    window.location.reload();
 }
-
-init();
-
-backBttn.addEventListener("click", );//still need more
-
 
 //function for timer
 function startTime() {
@@ -183,102 +182,3 @@ function startTime() {
         }
     }, 1000)
 }
-//var answer1;
-//var answer2;
-//var answer3;
-//event target listener to determine when quiz is complete
-/*quizContainer.addEventListener("click", function(event){
-    var element = event.target;
-    
-    if(element.matches("button")) {
-        if(answer1 && answer2 && answer3 === true) {
-            clearInterval(timeInterval);
-            saveTime();
-            winValid();
-            timer.textContent = "Time: " + time;
-        }
-    }
-}) */
-
-//event target listener for each question
-/*question1.addEventListener("click", function(event){
-    var element = event.target;
-    
-    if(element.matches("button")) {
-        answer1 = true;
-        var answerIs = element.getAttribute("class");
-        if(answerIs === "correct") {
-            show1("Correct!");
-        }
-        if(answerIs === "wrong") {
-            show1("Wrong!");
-            time = time - 10;
-        }
-    }
-})
-
-question2.addEventListener("click", function(event){
-    var element = event.target;
-    
-    if(element.matches("button")) {
-        answer2 = true;
-        var answerIs = element.getAttribute("class");
-        if(answerIs === "correct") {
-            show2("Correct!");
-        }
-        if(answerIs === "wrong") {
-            show2("Wrong!");
-            time = time - 10;
-        }
-    }
-})
-
-question3.addEventListener("click", function(event){
-    var element = event.target;
-    
-    if(element.matches("button")) {
-        answer3 = true;
-        var answerIs = element.getAttribute("class");
-        if(answerIs === "correct") {
-            show3("Correct!");
-        }
-        if(answerIs === "wrong") {
-            show3("Wrong!");
-            time = time - 10;
-        }
-    }
-}) */
-/*var question1 = document.getElementById("q1");
-var question2 = document.getElementById("q2");
-var question3 = document.getElementById("q3");
-var correctAns = document.querySelectorAll(".correct");
-var wrongAns = document.querySelectorAll(".wrong");
-var showAns1 = document.querySelector(".display1");
-var showAns2 = document.querySelector(".display2");
-var showAns3 = document.querySelector(".display3"); */
-/*//function for screen display
-function sectionChange() {
-    var sections = document.querySelectorAll("section");
-    
-    if (sections[0].style.display === "block") {
-        sections[1].style.display === "none";
-        sections[2].style.display === "none";
-        sections[3].style.display === "none";
-        sections[4].style.display === "none";
-        sections[5].style.display === "none";
-        if (startbtn === true) {
-            sections[1].style.display === "block"; 
-        }
-    }
-}*/
-/*function show1(incoming) {
-    showAns1.textContent = incoming;
-}
-
-function show2(incoming) {
-    showAns2.textContent = incoming;
-}
-
-function show3(incoming) {
-    showAns3.textContent = incoming;
-}*/
