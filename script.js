@@ -105,8 +105,11 @@ function answerValid() {
         clearInterval(timeInterval);
         quizContainer.setAttribute("class", "no-display");
         scoreCont.setAttribute("class", "show-display");
-        winValid(); //????
-        saveInitials(); //?????????????????
+        winValid(); 
+        saveInitials();
+        var finalScoreEl = document.createElement("h2");
+        finalScoreEl.textContent = `Your Score: ${time}`;
+        scoreCont.appendChild(finalScoreEl);
     } else {
         displayQuiz();
     }
@@ -116,14 +119,15 @@ function answerValid() {
 
 //function for winning the game
 function gameWin(time) {
-    yourScore.textContent = "Your Score:" + time;
     saveTime();
     saveInitials();
 }
 
 //function for losing the game
 function gameLoss() {
-    yourScore.textContent = "You Lose";
+    var messageEl = document.createElement('h2');
+    messageEl.textContent = `You Lose`;
+    scoreCont.appendChild(messageEl);
 }
 
 //function checking win
@@ -133,6 +137,7 @@ function winValid() {
     }
     else {
         gameLoss();
+        time = 0;
     }
 }
 
@@ -156,14 +161,12 @@ console.log(saveInitials);
 function saveInitials () {
     var initial = initialInput.value;
     if (initial === ""){
-        yourScore.textContent = "Please enter your initials";
-        console.log(initial);
+        yourScore.innerHTML = "Please enter your initials";
     } else {
         localStorage.setItem("initial", initial);
         showScore();
         scoreCont.setAttribute("class", "no-display");
         highscoreCont.setAttribute("class", "show-display");
-        console.log(initial);
     }
 }
 
