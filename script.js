@@ -73,6 +73,8 @@ function answerValid() {
     } else {
         displayQuiz();
     }
+    saveTime();
+    timer.textContent = "Time: " + time;
 }
 
 //Clicking start button begins quiz
@@ -92,6 +94,11 @@ function gameWin(time) {
     saveTime();
 }
 
+//function to retrieve time
+function saveTime() {
+    localStorage.setItem("time", time);
+}
+
 //function checking win
 function winValid() {
     if (time > 0) {
@@ -107,16 +114,6 @@ function winValid() {
 function gameLoss() {
     yourScore.textContent = "You Lose";
 }
-
-
-//functions to show if answer is wrong or correct
-function show() {
-    rightOrWrong.textContent = incoming;
-}
-
-
-//function for storagelog get item & submit initials
-
 
 function showScore() {
     var hiScores = document.querySelector("#history");
@@ -271,9 +268,4 @@ function show2(incoming) {
 
 function show3(incoming) {
     showAns3.textContent = incoming;
-}
-
-//function to retrieve time
-function saveTime() {
-    localStorage.setItem("time", time);
 }*/
