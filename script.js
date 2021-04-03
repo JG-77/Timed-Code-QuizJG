@@ -163,8 +163,6 @@ function clear() {
 backBttn.addEventListener("click", backGame);//still need more
 
 function backGame() {
-    startcont.setAttribute("class", "show-display");
-    highscoreCont.setAttribute("class", "no-display");
     window.location.reload();
 }
 
