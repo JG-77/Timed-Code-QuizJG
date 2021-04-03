@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <!--Header to display time left-->
+    <!--Header to display time left and highscores link-->
     <header>
         <nav>
             <div id="timer">Time:</div>
-            <a href="#" id="viewhs">View Highscores</a>
+            <a href="#link" id="viewhs">View Highscores</a>
         </nav>
         <h1 id="heading">Code Quiz</h1>
     </header>
@@ -24,7 +24,7 @@
     </section>
     <section id="quiz" class="no-display">
        <h2 id="question"></h2>
-       <span id="right-wrong"></span>
+       <div id="right-wrong"></div>
        <div id="choice"></div>
     </section>
     <section id="scoreboard" class="no-display">
@@ -36,11 +36,11 @@
 
     <section id="highscore" class="no-display">
         <h2>Highscores</h2>
-        <span id="history"></span>
+        <div id="history"></div>
         <button id="back">Go Back</button>
         <button id="clear">Clear Highscore</button>
     </section>
-
+    <section class="no-display" id="link"></section>
     <script src="script.js"></script>
 </body>
 </html>

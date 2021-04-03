@@ -149,7 +149,6 @@ function saveInitials () {
     }
 }
 
-
 //event listener when clicking "clear highscore" button
 clearScore.addEventListener("click", clear);
 
