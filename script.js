@@ -150,17 +150,20 @@ function showScore() {
 }
 //event listener for submitting initials
 submitInitials.addEventListener("click", saveInitials);
+console.log(saveInitials);
 
 //function for saving initials -->bug
 function saveInitials () {
     var initial = initialInput.value;
     if (initial === ""){
         yourScore.textContent = "Please enter your initials";
+        console.log(initial);
     } else {
         localStorage.setItem("initial", initial);
         showScore();
         scoreCont.setAttribute("class", "no-display");
         highscoreCont.setAttribute("class", "show-display");
+        console.log(initial);
     }
 }
 
