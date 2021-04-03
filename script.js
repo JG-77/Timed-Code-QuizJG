@@ -137,7 +137,8 @@ function saveTime() {
 //function for storagelog get item & submit initials
 function showScore() {
     var hiScores = document.querySelector("#history");
-    hiScores.textContent = time;
+    hiScores.textContent = localStorage.getItem("time", time);
+
 }
 
 //event listener for submitting initials
