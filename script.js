@@ -171,14 +171,16 @@ function saveInitials () {
         showHS();
     }
 } 
+
 function showHS() {
-    localStorage.getItem("data")
+    var showHiScore = localStorage.getItem("data");
     var players = document.createElement('li');
     highscoreCont.appendChild(players);
-    //calling this function should...
-    //1. grab data from localStorage (and check if there is any)
-  //2. use document.createElement() to dynamically create p-tags, or li-tags to show that data.
-  //3. append those elements into the appropriate container 
+    players.textContent = showHiScore;
+    //JSON.parse(localStorage.getItem("initial", "time")
+    //for(var i = 0; i < showHiScore.length; i++) {
+
+    //}
 }
 
 //saves data and enters it in storage 
