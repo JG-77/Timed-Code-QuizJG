@@ -100,6 +100,7 @@ function answerValid() {
         rightOrWrong.innerHTML = "Wrong!";
         time = time - 10;
     }
+    //moves on to the next question until third question answered
     questionIndex++;
     if(questionIndex > 2) {
         clearInterval(timeInterval);
@@ -203,7 +204,7 @@ function openScores() {
 }
 
 //back button even and function
-backBttn.addEventListener("click", backGame);//still need more
+backBttn.addEventListener("click", backGame);
 
 function backGame() {
     window.location.reload();
