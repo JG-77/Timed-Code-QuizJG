@@ -1,10 +1,13 @@
 //variables pulled from html
 var timer = document.getElementById("timer");
+var startcont= document.getElementById("start-screen");
 var startbtn = document.getElementById("startbtn");
 var quizContainer = document.getElementById("quiz");
 var questionDisplay = document.getElementById("question");
 var AnsChoiceCont = document.getElementById("choice");
 var rightOrWrong = document.getElementById("right-wrong");
+var scoreCont= document.getElementById("scoreboard");
+var highscoreCont= document.getElementById("highscore");
 var yourScore = document.querySelector(".score");
 var submitInitials = document.querySelector("#submitScore");
 var initialInput = document.querySelector("#initials");
@@ -48,6 +51,20 @@ var quizArray = [
     }
 ]
 
+//Clicking start button begins quiz
+startbtn.addEventListener("click", startQuiz);
+
+//function for starting quiz
+function startQuiz() {
+    winner = false;
+    time = 60;
+    startTime(time);
+    displayQuiz();
+    startcont.setAttribute("class", "no-display");
+    quizContainer.setAttribute("class", "show-display");
+}
+
+//displays quiz questions and answer choices
 function displayQuiz() {
     questionDisplay.textContent = quizArray[questionIndex].q;
     AnsChoiceCont.innerHTML = "";
@@ -59,6 +76,7 @@ function displayQuiz() {
     }
 }
 
+//informs player if answer is correct or wrong
 function answerValid() {
     if(this.textContent === quizArray[questionIndex].answer) {
         rightOrWrong.innerHTML = "Correct!"
@@ -70,6 +88,8 @@ function answerValid() {
     questionIndex++;
     if(questionIndex > 2) {
         clearInterval(timeInterval);
+        quizContainer.setAttribute("class", "no-display");
+        scoreCont.setAttribute("class", "show-display");
     } else {
         displayQuiz();
     }
@@ -77,21 +97,11 @@ function answerValid() {
     timer.textContent = "Time: " + time;
 }
 
-//Clicking start button begins quiz
-startbtn.addEventListener("click", startQuiz);
-
-//function for starting quiz
-function startQuiz() {
-    winner = false;
-    time = 60;
-    startTime(time);
-    displayQuiz();
-}
-
 //function for winning the game
 function gameWin(time) {
     yourScore.textContent = "Your Score:" + time;
     saveTime();
+    saveInitials();
 }
 
 //function to retrieve time
@@ -115,6 +125,7 @@ function gameLoss() {
     yourScore.textContent = "You Lose";
 }
 
+//shows score and initial on screen
 function showScore() {
     var hiScores = document.querySelector("#history");
     var getScore = localStorage.getItem("time", time);
@@ -123,17 +134,19 @@ function showScore() {
     hiScores.textContent = initial + "-" + getScore;
 }
 //event listener for submitting initials
-submitInitials.addEventListener("click", function(event) {
-    event.preventDefault();
+submitInitials.addEventListener("click", saveInitials);
+
+//function for saving initials -->bug
+function saveInitials () {
     var initial = initialInput.value;
     if (initial === ""){
         yourScore.textContent = "Please enter your initials";
     } else {
         localStorage.setItem("initial", initial);
         showScore();
-        console.log(initial);
+        highscoreCont.setAttribute("class", "show-display");
     }
-})
+}
 
 
 //event listener when clicking "clear highscore" button
