@@ -107,22 +107,6 @@ function show() {
     rightOrWrong.textContent = incoming;
 }
 
-/*function show1(incoming) {
-    showAns1.textContent = incoming;
-}
-
-function show2(incoming) {
-    showAns2.textContent = incoming;
-}
-
-function show3(incoming) {
-    showAns3.textContent = incoming;
-}
-
-//function to retrieve time
-function saveTime() {
-    localStorage.setItem("time", time);
-}*/
 
 //function for storagelog get item & submit initials
 
@@ -269,4 +253,20 @@ function sectionChange() {
             sections[1].style.display === "block"; 
         }
     }
+}*/
+/*function show1(incoming) {
+    showAns1.textContent = incoming;
+}
+
+function show2(incoming) {
+    showAns2.textContent = incoming;
+}
+
+function show3(incoming) {
+    showAns3.textContent = incoming;
+}
+
+//function to retrieve time
+function saveTime() {
+    localStorage.setItem("time", time);
 }*/
