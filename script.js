@@ -12,6 +12,9 @@ var showAns2 = document.querySelector(".display2");
 var showAns3 = document.querySelector(".display3");
 var yourScore = document.querySelector(".score");
 var submitInitials = document.querySelector("#submitScore");
+var initialInput = document.querySelector("#initials");
+var backBttn = document.querySelector("#back");
+var clearScore = document.querySelector("#clear");
 
 //global variables
 var time = 60;
@@ -135,7 +138,7 @@ function saveTime() {
 }
 
 //function for storagelog get item & submit initials
-var initialInput = document.querySelector("#initials");
+
 
 function showScore() {
     var hiScores = document.querySelector("#history");
@@ -157,20 +160,41 @@ submitInitials.addEventListener("click", function(event) {
     }
 })
 
-var clearScore = document.querySelector("#clear");
 
-clearScore.addEventListener("click", function(event){
-event.preventDefault();
-    clear();
-})
+//event listener when clicking "clear highscore" button
+clearScore.addEventListener("click", clear);
 
+//function to clear highscores
 function clear() {
     localStorage.removeItem("time", time);
-
     var initial = initialInput.value;
-    //initial = reset??
+    localStorage.removeItem("initial", initial);
 }
+
+//init() function for page refresh
+function init() {
+showScore();
+}
+
+init(sectionChange);
+
+backBttn.addEventListener("click", sectionChange);//still need more
+
 //function for screen display
+function sectionChange() {
+    var sections = document.querySelectorAll("section");
+
+    if (sections[0].style.display === "block") {
+        sections[1].style.display === "none";
+        sections[2].style.display === "none";
+        sections[3].style.display === "none";
+        sections[4].style.display === "none";
+        sections[5].style.display === "none";
+        if (startbtn === true) {
+            sections[1].style.display === "block"; 
+        }
+    }
+}
 
 //function for timer
 function startTime() {
