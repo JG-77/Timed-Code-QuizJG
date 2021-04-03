@@ -137,16 +137,16 @@ function saveTime() {
 //function for storagelog get item & submit initials
 function showScore() {
     var hiScores = document.querySelector("#history");
-    hiScores.textContent = localStorage.getItem("time", time);
-
+    hiScores.textContent = initialInput.textContent + localStorage.getItem("time", time); //edit & fix
+    //want initials to diplay next to scores
 }
 
+var initialInput = document.querySelector("#initials");
 //event listener for submitting initials
 submitInitials.addEventListener("click", function(event) {
     
-    var initialInput = document.querySelector("#initials");
     if (initialInput === ""){
-        yourScore.textContent = "Please enter your initials";
+        yourScore.textContent = "Please enter your initials";//not showing up
     } else {
         showScore();
     }
