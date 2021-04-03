@@ -176,13 +176,16 @@ function showHS() {
     var showHiScore = JSON.parse(localStorage.getItem("data"));
 
     showHiScore.forEach((score) => { 
+        var player = document.createElement('li');
+        player.textContent = score.time;
+        player.appendChild('li');
         console.log(score.initials); 
         console.log(score.time) 
       });
     var prevScores = document.createElement('li');
-    //prevScores = initials.value + time.value;
     highscoreCont.appendChild(prevScores);
     prevScores.textContent = showHiScore;
+    //prevScores = initials.value + time.value;
     //JSON.parse(localStorage.getItem("initial", "time")
     //for(var i = 0; i < showHiScore.length; i++) {
 
