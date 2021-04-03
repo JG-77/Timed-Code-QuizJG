@@ -1,6 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-
+    background-color: rgb(162, 230, 247);
 }
 h1 {
     font-size: 55px;
@@ -16,21 +16,24 @@ h1 {
 #viewhs {
     text-align: left;
 }
+.no-display {
+    display:none;
+} 
 
-/*choose between section or make styling for each inidividual element*/
+.show-display {
+    display: block;
+}
+
 section {
     text-align: center;
     border: solid black;
+    background-color: rgb(255, 255, 255);
 }
 h2 { 
     text-align: center;
     font-size: 20px;
 }
 
-ul {
-    list-style-type: none;
-    
-}
 button {
     background-color: steelblue;
     display: inline-block;
