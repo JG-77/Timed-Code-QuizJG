@@ -173,7 +173,7 @@ function saveInitials () {
 } 
 function showHS() {
     localStorage.getItem("data")
-    var players = document.createElement('p');
+    var players = document.createElement('li');
     highscoreCont.appendChild(players);
     //calling this function should...
     //1. grab data from localStorage (and check if there is any)
