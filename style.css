@@ -28,6 +28,8 @@ section {
     text-align: center;
     border: solid black;
     background-color: rgb(255, 255, 255);
+    margin-left: 250px;
+    max-width: 50%;
 }
 h2 { 
     text-align: center;

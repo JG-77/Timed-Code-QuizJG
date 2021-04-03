@@ -157,7 +157,7 @@ function showScore() {
 //event listener for submitting initials
 submitInitials.addEventListener("click", saveInitials);
 
-//function for saving initials -->bug
+//function for saving initials
 function saveInitials () {
     var initial = initialInput.value;
     if (initial === ""){
@@ -171,7 +171,7 @@ function saveInitials () {
         showHS();
     }
 } 
-
+//displays initials and score on highschore container
 function showHS() {
     var showHiScore = JSON.parse(localStorage.getItem("data"));
 
@@ -209,6 +209,7 @@ function clear() {
     localStorage.removeItem("initial", initial);
 }
 
+//event to view highscore section
 link.addEventListener("click", openScores)
 
 function openScores() {
