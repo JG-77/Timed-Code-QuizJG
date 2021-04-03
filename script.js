@@ -155,7 +155,6 @@ function showScore() {
 }
 //event listener for submitting initials
 submitInitials.addEventListener("click", saveInitials);
-console.log(saveInitials);
 
 //function for saving initials -->bug
 function saveInitials () {
@@ -164,11 +163,24 @@ function saveInitials () {
         yourScore.innerHTML = "Please enter your initials";
     } else {
         localStorage.setItem("initial", initial);
-        showScore();
         scoreCont.setAttribute("class", "no-display");
         highscoreCont.setAttribute("class", "show-display");
+        showScore();
+        saveData();
     }
-}
+} 
+
+//saves data and enters it in storage 
+function saveData(initials, time) {
+    // Read our current data from localStorage
+    var savedData = JSON.parse(localStorage.getItem("data") || "[]");
+    console.log(savedData);
+    // Append a new entry to our saved array
+    savedData.push({ initials, time });
+  
+    // Save our new array back to localStorage
+    localStorage.setItem("data", JSON.stringify(savedData));
+  }
 
 //event listener when clicking "clear highscore" button
 clearScore.addEventListener("click", clear);
