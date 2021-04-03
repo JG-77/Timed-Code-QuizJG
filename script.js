@@ -55,16 +55,23 @@ function displayQuiz() {
         var choiceBtn = document.createElement('button');
         choiceBtn.textContent = quizArray[questionIndex].answerChoices[i];
         AnsChoiceCont.append(choiceBtn);
-        //answerValid();
+        choiceBtn.addEventListener("click", answerValid);
     }
 }
 
 function answerValid() {
-    if(answerChoices === answer) {
-    show("Correct!");
+    if(this.textContent === quizArray[questionIndex].answer) {
+        rightOrWrong.innerHTML = "Correct!"
     }
-    else if (answerChoices !== answer) {
-        show("Wrong!")
+    else if(this.textContent !== quizArray[questionIndex].answer) {
+        rightOrWrong.innerHTML = "Wrong!";
+        time = time - 10;
+    }
+    questionIndex++;
+    if(questionIndex > 2) {
+        clearInterval(timeInterval);
+    } else {
+        displayQuiz();
     }
 }
 
