@@ -135,27 +135,41 @@ function saveTime() {
 }
 
 //function for storagelog get item & submit initials
+var initialInput = document.querySelector("#initials");
+
 function showScore() {
     var hiScores = document.querySelector("#history");
     var getScore = localStorage.getItem("time", time);
-    var initialInput = document.querySelector("#initials").value;
+    var initial = initialInput.value;
     console.log(getScore);
-    hiScores.textContent = initialInput + "-" + getScore;//edit & fix
-    //want initials to diplay next to scores
+    hiScores.textContent = initial + "-" + getScore;
 }
-
 //event listener for submitting initials
 submitInitials.addEventListener("click", function(event) {
     event.preventDefault();
-    var initialInput = document.querySelector("#initials").value;
-    if (initialInput === ""){
-        yourScore.textContent = "Please enter your initials";//not showing up
+    var initial = initialInput.value;
+    if (initial === ""){
+        yourScore.textContent = "Please enter your initials";
     } else {
-        localStorage.setItem("initialInput", initialInput);
+        localStorage.setItem("initial", initial);
         showScore();
-        console.log(initialInput);
+        console.log(initial);
     }
 })
+
+var clearScore = document.querySelector("#clear");
+
+clearScore.addEventListener("click", function(event){
+event.preventDefault();
+    clear();
+})
+
+function clear() {
+    localStorage.removeItem("time", time);
+
+    var initial = initialInput.value;
+    //initial = reset??
+}
 //function for screen display
 
 //function for timer
