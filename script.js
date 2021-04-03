@@ -173,10 +173,16 @@ function saveInitials () {
 } 
 
 function showHS() {
-    var showHiScore = localStorage.getItem("data");
-    var players = document.createElement('li');
-    highscoreCont.appendChild(players);
-    players.textContent = showHiScore;
+    var showHiScore = JSON.parse(localStorage.getItem("data"));
+
+    showHiScore.forEach((score) => { 
+        console.log(score.initials); 
+        console.log(score.time) 
+      });
+    var prevScores = document.createElement('li');
+    //prevScores = initials.value + time.value;
+    highscoreCont.appendChild(prevScores);
+    prevScores.textContent = showHiScore;
     //JSON.parse(localStorage.getItem("initial", "time")
     //for(var i = 0; i < showHiScore.length; i++) {
 
