@@ -33,7 +33,7 @@ var quizArray = [
         "3. <nav>",
         "4. <h1>"
     ],
-    answer: "2. <div>" //index for "2.div"
+    answer: "2. <div>" 
   }, {
       q: "Which element typically goes at the bottom of an html page?",
       answerChoices: [
@@ -42,7 +42,7 @@ var quizArray = [
           "3. <footer>",
           "4. <head>"
       ],
-      answer: "3. <footer>" //index for "3. footer"
+      answer: "3. <footer>" 
   }, {
       q: "Which coding language allows one to use the 'console.log' function?",
       answerChoices: [
