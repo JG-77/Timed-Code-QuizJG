@@ -167,18 +167,26 @@ function saveInitials () {
         scoreCont.setAttribute("class", "no-display");
         highscoreCont.setAttribute("class", "show-display");
         showScore();
-        saveData();
+        saveData(initial, time);
+        showHS();
     }
 } 
+function showHS() {
+    localStorage.getItem("data")
+    var players = document.createElement('p');
+    highscoreCont.appendChild(players);
+    //calling this function should...
+    //1. grab data from localStorage (and check if there is any)
+  //2. use document.createElement() to dynamically create p-tags, or li-tags to show that data.
+  //3. append those elements into the appropriate container 
+}
 
 //saves data and enters it in storage 
 function saveData(initials, time) {
     // Read our current data from localStorage
     var savedData = JSON.parse(localStorage.getItem("data") || "[]");
-    console.log(savedData);
     // Append a new entry to our saved array
     savedData.push({ initials, time });
-  
     // Save our new array back to localStorage
     localStorage.setItem("data", JSON.stringify(savedData));
   }
@@ -188,7 +196,7 @@ clearScore.addEventListener("click", clear);
 
 //function to clear highscores
 function clear() {
-    localStorage.removeItem("time", time);
+    localStorage.removeItem("time", time);//data
     var initial = initialInput.value;
     localStorage.removeItem("initial", initial);
 }
@@ -201,6 +209,7 @@ function openScores() {
     } else {
         highscoreCont.setAttribute("class", "no-display");
     }
+    showHS();
 }
 
 //back button even and function
