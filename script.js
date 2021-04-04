@@ -176,7 +176,7 @@ function showHS() {
     var showHiScore = JSON.parse(localStorage.getItem("data"));
     showHiScore.forEach((score) => { 
         var player = document.createElement('li');
-        player.textContent = score.initials + " " + score.time;
+        player.textContent = score.initials + "-" + score.time;
         console.log(score.initials); 
         console.log(score.time) 
         highscoreCont.appendChild(player);
@@ -198,9 +198,10 @@ clearScore.addEventListener("click", clear);
 
 //function to clear highscores
 function clear() {
-    localStorage.removeItem("time", time);//data
+    localStorage.removeItem("data");//data
     var initial = initialInput.value;
-    localStorage.removeItem("initial", initial);
+    localStorage.removeItem("data");
+    alert("Please click the 'back' button to reset page and score!");
 }
 
 //event to view highscore section
