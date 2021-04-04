@@ -3,7 +3,7 @@ Github repo:https://github.com/JG-77/Timed-Code-QuizJG.git
 
 live app:https://jg-77.github.io/Timed-Code-QuizJG/ 
 
-![Timed Quiz Screenshot](https://user-images.githubusercontent.com/76461629/113484937-dae24d00-945f-11eb-8f66-8439c2e647c1.png)
+![Timed Quiz Screenshot](https://user-images.githubusercontent.com/76461629/113494588-7692ae00-949e-11eb-8ffb-d9a0a8221af1.png)
 
 ## Description
 In this quiz, players will be timed for one minute to answer three questions. After selecting an answer, the following question will appear, however, selecting a wrong answer will result in losing ten seconds of time for completing the quiz. Once the quiz is completed, the player's score will be displayed, and the player's initials must be submitted to store the score in the highscore section. The 'back' button will refresh the page and restart the game, and the 'clear highscore button' clears the local storage.
